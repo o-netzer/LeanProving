@@ -1,6 +1,7 @@
-# My Propositional Logic Project in Lean 4
+# The Gentzen-Lean Style in Propositional Logic
+# Proofs in Lean 4 into 1:1 correspondence with Gentzen-like derivations
 
-This repository contains my formal proofs for propositional logic as I learn the Lean 4 theorem prover.
+Summary (goals, mean, strategy)
 
 ## 🚀 Interactive Mode
 You can view and run these proofs interactively in your browser without installing anything:

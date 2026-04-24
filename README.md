@@ -1,5 +1,5 @@
 # The Gentzen-Lean Style in Propositional Logic
-# Proofs in Lean 4 into 1:1 correspondence with Gentzen-like derivations
+# Put Proofs in Lean 4 into 1:1 correspondence with Gentzen-like derivations
 
 Summary (goals, mean, strategy)
 

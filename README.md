@@ -39,7 +39,7 @@ Since this project is optimized for the web-based version of Lean 4, you don't n
 3. Paste it into the web editor to see the interactive proof state!
 
 ## 📈 Progress
-- [x] **Propositional Logic**: Basic Rules     ([View File](1.lean))
-- [x] **Propositional Logic**: Meta-rules      ([View File](1.lean))
+- [x] **Propositional Logic**: Basic Rules     ([THE GENTZEN–LEAN PROVING STYLE IN MATHEMATICAL LOGIC 1.lean](1.lean))
+- [x] **Propositional Logic**: Meta-rules      ([THE GENTZEN–LEAN PROVING STYLE IN MATHEMATICAL LOGIC 1.lean](1.lean))
 - [ ] **Propositional Logic**: Derived Rules
 - [ ] **First Order Logic** with Identity

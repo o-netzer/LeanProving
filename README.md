@@ -34,7 +34,7 @@ example {P Q R : Prop} : ((P ∧ R) ∨ (Q ∧ R)) → R := by {
 ## 🚀 Try it Online
 Since this project is optimized for the web-based version of Lean 4, you don't need to install anything locally.
 
-1. Open the [Lean 4 Web Editor](https://lean-lang.org).
+1. Open the [Lean 4 Web Editor](https://live.lean-lang.org/).
 2. Copy the code from any `.lean` file in this repository.
 3. Paste it into the web editor to see the interactive proof state!
 

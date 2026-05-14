@@ -2,6 +2,8 @@
 
 This repository contains formal proofs in Lean 4, designed to maintain a (nearly) 1:1 correspondence with Gentzen-like natural deduction derivations.
 
+#1  [Propositional Logic](https://github.com/o-netzer/LeanProving/blob/main/THE%20GENTZEN%E2%80%93LEAN%20PROVING%20STYLE%20IN%20MATHEMATICAL%20LOGIC%201.lean)
+
 ## 📖 Abstract
 **Introduction:** The objective of this work is to bridge the gap between traditional Gentzen-style logical derivations and interactive theorem proving in Lean 4 tactic mode by exploring the possibility of a strict 1:1 mapping of the two formalisms.
 

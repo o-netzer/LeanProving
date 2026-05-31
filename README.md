@@ -35,7 +35,7 @@ example {P Q R : Prop} : ((P ∧ R) ∨ (Q ∧ R)) → R := by {
 }
 ```
 
-## [Part 2]
+## [Part 2](THE GENTZEN–LEAN PROVING STYLE IN MATHEMATICAL LOGIC 2.lean)
 
 
 ## 📖 Abstract

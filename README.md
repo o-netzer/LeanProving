@@ -35,6 +35,13 @@ example {P Q R : Prop} : ((P ∧ R) ∨ (Q ∧ R)) → R := by {
 }
 ```
 
+## [Part 2]
+
+
+## 📖 Abstract
+
+
+
 ## 🚀 Try it Online
 Since this project is optimized for the web-based version of Lean 4, you don't need to install anything locally.
 

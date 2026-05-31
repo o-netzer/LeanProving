@@ -17,7 +17,7 @@ open Classical
  presenting their applications in the hybrid Gentzen-Lean style. Concurrently, we introduce a
  novel, non-hybrid approach right from the outset: Gentzen-Lean Subproofing. This method
  systematically resolves the issue of Lean's "silent closing of pending goals" (the invisibility
- of discharging assumptions), establishing—with only minor structural overhead—a precise 1:1 
+ of discharging assumptions), establishing — with only minor structural overhead — a precise 1:1 
  correspondence between Lean code and traditional Gentzen-style derivations. Consequently,
  all subsequent proofs in this paper, which primarily center around equivalence theorems,
  are performed and contrasted in both styles.

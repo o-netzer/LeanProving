@@ -1,12 +1,14 @@
 -- Tested on live.lean-lang.org
-import Mathlib.Data.Real.Basic
+-- Author: Oliver Netzer, http://www.linkedin.com/in/onet2015, https://github.com/o-netzer/LeanProving
 import Mathlib.Tactic
+import Mathlib.Logic.Basic
 open Classical
 
 
 /-!
-# THE GENTZEN–LEAN PROVING STYLE IN MATHEMATICAL LOGIC
+# THE GENTZEN–LEAN PROVING STYLES IN MATHEMATICAL LOGIC
 
+							Part 1
 
 
 ## Abstract
@@ -59,8 +61,9 @@ C O N T E N T S
 -------------------------------
 1.5     Preliminary Conclusion
 -------------------------------
-1.6     More Derived Rules
+
 -/
+
 
 -- 1 Propositional Logic
 
@@ -162,10 +165,10 @@ as abbreviations for proof assumptions (sometimes with indices); we have for ins
 '[P∨Q]CP'     for 'P∨Q conditional proof assumption'
 '[P→Q]PEC     for 'P→Q proof by exhaustive cases assumption'
 '[Q∧P]IP'     for 'Q∧P indirect proof assumption'
-'[R]PC1'       for 'R proof by cases assumption 1'
-'[¬R∨S]'      for '¬R∨S' premise'
+'[R]PC'       for 'R proof by cases assumption'
+'[¬R∨S]Pr'    for '¬R∨S' premise'
 
-When applying theorems during a derivation, we write '[formula]Th'.
+When applying theorems in a derivation, we write '[formula]Th'.
 
 In Lean, there are two kinds of provable statements,
 1) statements with named premises, such as
@@ -193,7 +196,7 @@ Basic Rules
 -- (DNI)    A ⊢ ¬¬A                    (Double Negation Introduction)
 -- (DNE)    ¬¬A ⊢ A                    (Double Negation Elimination)
 -- (TA)     A → A                      (Trivial Argument)
--- (PC)    A ∨ B, A → C, B → C ⊢ C    (Disjunction, ∨-Elimination)
+-- (PC)     A ∨ B, A → C, B → C ⊢ C    (Disjunction, ∨-Elimination)
 
 ----------------------------------------------------------------------
 Meta-Rules
@@ -202,6 +205,8 @@ Meta-Rules
 -- (IP)   Indirect Proof
 -- (CP)   Conditional Proof
 -- (PEC)  Proof by Exhaustive Cases
+
+
 
 
 
@@ -1577,7 +1582,6 @@ example (P Q : Prop) : (P → Q) → (¬P ∨ Q) := by {
 -------------------------------------------------------------------
                                     -- 8 (P → Q) → (¬P ∨ Q) by CP from 1-7
 }
-
 /-
 This concludes our considerations on how to establish a basis of rules for our Lean–Gentzen style of propositional logic theorem proving.
 -/
@@ -1585,7 +1589,7 @@ This concludes our considerations on how to establish a basis of rules for our L
 
 /-!
 --------------------------------------------------------------------
-## 1.4 Preliminary Conclusion
+## 1.5 Preliminary Conclusion
 --------------------------------------------------------------------
 
 This first part of the investigation evaluates the extensional 1:1 correspondence 
@@ -1624,32 +1628,6 @@ remains readable for human logicians and transparent for machine analysis. This
 coexistence preserves the deductive linearity of natural deduction without hiding 
 Lean’s internal goal transformations.
 -/
-
--- 1.6 Derived Rules
---tbd
-/-
-1.6.1 (EqUI) A → B, B → A ⊢ A ↔ B (Equivalence Intro)
-1.6.2 (EQUE1) A ↔ B ⊢ A → B (Equivalence Elimination 1)
-1.6.3 (EQUE2) A ↔ B ⊢ B → A (Equivalence Elimination 2)
-1.6.4 --Iff.or------∀ {a c b d : Prop}, (a ↔ c) → (b ↔ d) → (a ∨ b ↔ c ∨ d)
-1.6.5 Proofs by Equivalence Transformation
--/ 
-
-theorem and_equi_or_ {P Q : Prop} : (P ∧ Q) ↔ ¬(¬P ∨ ¬Q) := by {
-  have th1 : ¬(P ∧ Q) ↔ (¬P ∨ ¬Q) := not_and_or
-  -- 1 [¬(P∧Q)↔¬P∨¬Q]Th1
-  -- Remark: Now we apply negation on both sides of "↔" of Th1:
-  have th2 : ¬¬(P ∧ Q) ↔ ¬(¬P ∨ ¬Q) := Iff.not th1
-  -- 2 ¬¬(P∧Q)↔¬(¬P∨¬Q) by Modus Ponens from
-  --   [(a↔b)↔(¬a↔¬b)]Th2 (setting a := ¬(P∧Q),
-  --   b := ¬P∨¬Q) and from 1
-  have nn : (P ∧ Q) ↔ ¬¬(P ∧ Q) := ⟨not_not_intro, of_not_not⟩
-  -- 3  (P∧Q) ↔ ¬¬(P∧Q) by ∧-Intro from [A→¬¬A]Th3,  [¬¬A→A]Th4 (setting A:=(P∧Q)
-  have th3 : (P ∧ Q) ↔ ¬(¬P ∨ ¬Q) := Iff.trans nn th2
-  -- 4 (P∧Q) ↔ ¬(¬P∨¬Q) by [(A↔B)∧(B↔C)→(A↔B)]Th5 (setting A:=P∧Q, B:=¬¬(P∧Q), C:=¬(¬P ∨ ¬Q)) from 3,2
-  exact th3
-}
-
 
 
 

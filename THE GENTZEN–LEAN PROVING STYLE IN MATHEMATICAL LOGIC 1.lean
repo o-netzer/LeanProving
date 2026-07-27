@@ -1348,7 +1348,7 @@ example {P Q : Prop} (h: P ∨ Q) : (¬P → Q) := by {
  
 --formula
 example {P Q : Prop} : (P ∨ Q) → (¬P → Q) := by {
-  by_contra hnPQ                        -- 1 [(P∨Q)→(¬P→Q)]IP
+  by_contra hnPQ                        -- 1 [¬((P∨Q)→(¬P→Q))]IP
   have h1 : (P ∨ Q) ∧ ¬(¬P → Q) := Classical.not_imp.mp hnPQ -- 2 (P∨Q)∧¬(¬P→Q) by
                                                              --   Th [¬(a→b)→(a∧¬b) from 1 
   have h2 : (P ∨ Q) := h1.left          -- 3 P∨Q by ∧-Elimination1 from 2
